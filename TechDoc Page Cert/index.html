@@ -37,12 +37,12 @@
               </code>
               <p>Let's try it out! Using a text editor, paste the three lines of CSS (above) into a new file. Save the file as style.css in a directory named styles.
 
-                To make the code work, we still need to apply this CSS (above) to your HTML document. Otherwise, the styling won't change the appearance of the HTML. (If you haven't been following our project, pause here to read <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">Dealing with files</a> and <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML basics</a>.)</p>
+                To make the code work, we still need to apply this CSS (above) to your HTML document. Otherwise, the styling won't change the appearance of the HTML. (If you haven't been following our project, pause here to read <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files" rel="noopener noreferrer">Dealing with files</a> and <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" rel="noopener noreferrer">HTML basics</a>.)</p>
               <ol>
                 <li>Open your <code>index.html</code> file. Paste the following line in the head (between the 
-                    <a href="/en-US/docs/Web/HTML/Element/head"><code>&lt;head&gt;</code></a>
+                    <a href="/en-US/docs/Web/HTML/Element/head" target="_blank" rel="noopener noreferrer"><code>&lt;head&gt;</code></a>
                     <code>&lt;head&gt;</code>
-                    <a href="/en-US/docs/Web/HTML/Element/head"><code>&lt;head&gt;</code></a>
+                    <a href="/en-US/docs/Web/HTML/Element/head" target="_blank" rel="noopener noreferrer"><code>&lt;head&gt;</code></a>
                      and 
                     <code>&lt;/head&gt;</code>
                      tags):
@@ -209,7 +209,7 @@
             </figure>
             <p>
                 There are many more selectors to discover. To learn more, see the MDN 
-                <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors">Selectors guide</a>
+                <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors" target="_blank" rel="noopener noreferrer">Selectors guide</a>
                 .
             </p>
         </section>
@@ -220,15 +220,98 @@
             </p>
             <ol>
                 <li>
-                    First, find <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like#font">output from Google Fonts</a> that you previously saved from <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like">What will your website look like?</a>. Add the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link"><code>&lt;link&gt;</code></a> element somewhere inside your <code>index.html</code>'s head (anywhere between the <head> and </head> tags). It looks something like this:
+                    First, find <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like#font" rel="noopener noreferrer">output from Google Fonts</a> that you previously saved from <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like" rel="noopener noreferrer">What will your website look like?</a>. Add the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link" rel="noopener noreferrer"><code>&lt;link&gt;</code></a> element somewhere inside your <code>index.html</code>'s head (anywhere between the <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags). It looks something like this:<br />
+                    <code>
+                        &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans"rel="stylesheet" /&gt;
+                    </code> <br />
+                    This code links your page to a style sheet that loads the Open Sans font family with your webpage.
                 </li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                    Next, delete the existing rule you have in your <code>style.css</code> file. It was a good test, but let's not continue with lots of red text.
+                </li>
+                <li>
+                    Add the following lines (shown below), replacing the <code>font-family</code> assignment with your <code>font-family</code> selection from <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like" rel="noopener noreferrer">What will your website look like?</a>. The property <code>font-family</code> refers to the font(s) you want to use for text. This rule defines a global base font and font size for the whole page. Since <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html" target="_blank" rel="noopener noreferrer"><code>&lt;head&gt;</code></a> is the parent element of the whole page, all elements inside it inherit the same <code>font-size</code> and <code>font-family</code>. <br />
+                    <code>
+                        html {
+                            font-size: 10px; /* px means "pixels": the base font size is now 10 pixels high */
+                            font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google Fonts */
+                          }                          
+                    </code>
+                    <div>
+                        <p>
+                            Note: Anything in CSS between /* and */ is a CSS comment. The browser ignores comments as it renders the code. CSS comments are a way for you to write helpful notes about your code or logic.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    Now let's set font sizes for elements that will have text inside the HTML body (<code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" target="_blank" rel="noopener noreferrer">h1</a></code>, <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" target="_blank" rel="noopener noreferrer">&lt;li&gt;</a></code>, and <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" target="_blank" rel="noopener,noreferrer">&lt;p&gt;</a></code>). We'll also center the heading. Finally, let's expand the second ruleset (below) with settings for line height and letter spacing to make body content more readable.
+                    <code>
+                        h1 {
+                            font-size: 60px;
+                            text-align: center;
+                          }
+                          
+                          p,
+                          li {
+                            font-size: 16px;
+                            line-height: 2;
+                            letter-spacing: 1px;
+                          }                          
+                    </code>
+                </li>
             </ol>
+            <p>
+                Adjust the <code>px</code> values as you like. Your work-in-progress should look similar to this:
+            </p>
+            <img src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/website-screenshot-font-small.png" alt="A progress photo of the Mozilla test page"/>
         </section>
         <section id="CSS:_all_about_boxes" class="main-section">
             <header>CSS: all about boxes</header>
+            <p>
+                Something you'll notice about writing CSS: a lot of it is about boxes. This includes setting size, color, and position. Most HTML elements on your page can be thought of as boxes sitting on top of other boxes.
+            </p>
+            <img src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/boxes.jpg" alt="A stack of large wooden boxes against a wall of stacked wooden boxes.">
+            <figcaption>
+                Photo from <a href=https://www.geograph.org.uk/photo/3418115 target="_blank" rel="noopener,noreferrer">https://www.geograph.org.uk/photo/3418115</a> Copyright ©<a href="https://www.geograph.org.uk/profile/26362"> Jim Barton</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener,noreferrer">cc-by-sa/2.0</a>
+            </figcaption>
+            <p>
+                CSS layout is mostly based on the box model. Each box taking up space on your page has properties like:
+            </p>
+            <ul>
+                <li>
+                    <code>padding</code>, the space around the content. In the example below, it is the space around the paragraph text.
+                </li>
+                <li>
+                    <code>border</code>, the solid line that is just outside the padding.
+                </li>
+                <li>
+                    <code>margin</code>, the space around the outside of the border.
+                </li>
+            </ul>
+            <img src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/box-model.png" alt="Three boxes within one another.">
+            <p>
+                In this section we also use:
+            </p>
+            <ul>
+                <li>
+                    <code>width</code> (of an element).
+                </li>
+                <li>
+                    <code>background-color</code>, the color behind an element's content and padding.
+                </li>
+                <li>
+                    <code>color</code>, the color of an element's content (usually text).
+                </li>
+                <li>
+                    <code>text-shadow</code> sets a drop shadow on the text inside an element.
+                </li>
+                <li>
+                    <code>display</code> sets the display mode of an element. (keep reading to learn more)
+                </li>
+            </ul>
+            <p>
+                To continue, let's add more CSS. Keep adding these new rules at the bottom of style.css. Experiment with changing values to see what happens.
+            </p>
         </section>
         <section id="Changing_the_page_color" class="main-section">
             <header>Changing the page color</header>
